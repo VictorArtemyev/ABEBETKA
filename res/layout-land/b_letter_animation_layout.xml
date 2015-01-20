@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/b_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <AbsoluteLayout
+        android:id="@+id/b_move"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/b_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="0dp"
+            android:layout_y="0dp"
+            android:src="@drawable/b_body_animation"/>
+
+        <ImageView
+            android:id="@+id/mouth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="138dp"
+            android:layout_y="186dp"
+            android:src="@drawable/mouth"
+            android:tag="@string/tag_mouth"/>
+
+        <ImageView
+            android:id="@+id/eyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="58dp"
+            android:layout_y="13dp"
+            android:src="@drawable/b_eyes"
+            android:tag="@string/tag_eyes"/>
+
+        <ImageView
+            android:id="@+id/b_left_hand"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_x="17dp"
+            android:layout_y="129dp"
+            android:src="@drawable/b_right_hand"
+            android:tag="@string/tag_left_hand"/>
+
+        <ImageView
+            android:id="@+id/b_right_leg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_x="40dp"
+            android:layout_y="205dp"
+            android:src="@drawable/b_right_leg"
+            android:tag="@string/tag_right_leg"/>
+
+        <ImageView
+            android:id="@+id/b_hat"
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:layout_x="69dp"
+            android:layout_y="68dp"
+            android:src="@drawable/b_hat"
+            android:tag="@string/tag_hat"/>
+
+        <ImageView
+            android:id="@+id/b_left_leg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_x="166dp"
+            android:layout_y="196dp"
+            android:src="@drawable/b_left_leg"
+            android:tag="@string/tag_left_leg"/>
+    </AbsoluteLayout>
+
+    <ImageButton
+        android:id="@+id/Next_Button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@id/b_move"
+        android:layout_toRightOf="@+id/b_move"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:onClick="onClick"
+        android:background="@drawable/next_button"/>
+
+    <ImageButton
+        android:id="@+id/Previous_Button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@id/b_move"
+        android:layout_toLeftOf="@+id/b_move"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/previous_button"
+        android:onClick="onClick"/>
+
+</RelativeLayout>

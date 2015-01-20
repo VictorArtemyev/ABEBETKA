@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/b_letter_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/b_body"
+        android:tag="@string/tag_body"/>
+
+    <ImageView
+        android:id="@+id/right_hand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_toLeftOf="@id/body"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/b_right_hand"
+        android:tag="@string/tag_right_hand"/>
+
+    <ImageView
+        android:id="@+id/right_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_toLeftOf="@id/body"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/b_right_leg"
+        android:tag="@string/tag_right_leg"/>
+
+    <ImageView
+        android:id="@+id/left_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_toLeftOf="@id/body"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="250dp"
+        android:src="@drawable/b_left_leg"
+        android:tag="@string/tag_left_leg"/>
+
+    <ImageView
+        android:id="@+id/hat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_toLeftOf="@id/body"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/b_hat"
+        android:tag="@string/tag_hat"/>
+
+    <ImageView
+        android:id="@+id/position_hat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/body"
+        android:layout_alignTop="@id/body"
+       android:layout_marginLeft="80dp"
+        android:layout_marginTop="65dp"
+        android:src="@drawable/b_spot_hat"/>
+
+    <ImageView
+        android:id="@+id/position_left_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/body"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/b_spot_left_leg"/>
+
+    <ImageView
+        android:id="@+id/position_right_hand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/body"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="125dp"
+        android:src="@drawable/b_spot_right_hand"/>
+
+    <ImageView
+        android:id="@+id/position_right_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/body"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="205dp"
+        android:src="@drawable/b_spot_right_leg"/>
+
+</RelativeLayout>

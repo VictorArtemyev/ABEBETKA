@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ABEBETKA</string>
+    <string name="tag_body">body</string>
+    <string name="tag_left_hand">left_hand</string>
+    <string name="tag_right_hand">right_hand</string>
+    <string name="tag_hat">hat</string>
+    <string name="tag_right_leg">right_leg</string>
+    <string name="tag_left_leg">left_leg</string>
+    <string name="tag_mouth">mouth</string>
+    <string name="tag_eyes">eyes</string>
+</resources>

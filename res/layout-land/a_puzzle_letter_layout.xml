@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/a_letter_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/a_body"
+        android:tag="@string/tag_body"/>
+
+    <ImageView
+        android:id="@+id/left_hand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/a_left_hand"
+        android:tag="@string/tag_left_hand"/>
+
+    <ImageView
+        android:id="@+id/right_hand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/a_right_hand"
+        android:tag="@string/tag_right_hand"/>
+
+    <ImageView
+        android:id="@+id/hat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="160dp"
+        android:src="@drawable/a_hat"
+        android:tag="@string/tag_hat"/>
+
+    <ImageView
+        android:id="@+id/right_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/a_right_leg"
+        android:tag="@string/tag_right_leg"/>
+
+    <View
+        android:id="@+id/position_hat"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="2dp"/>
+
+    <View
+        android:id="@+id/position_left_hand"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="140dp"/>
+
+    <View
+        android:id="@+id/position_right_hand"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="80dp"/>
+
+    <View
+        android:id="@+id/position_right_leg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@id/body"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="230dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/choice_letters"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/C_Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/B_Button"
+        android:layout_toEndOf="@+id/B_Button"
+        android:background="@drawable/c_button"
+        android:onClick="onClick"/>
+
+    <ImageButton
+        android:id="@+id/B_Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/b_button"
+        android:onClick="onClick"/>
+
+    <ImageButton
+        android:id="@+id/A_Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/B_Button"
+        android:layout_toStartOf="@+id/B_Button"
+        android:background="@drawable/a_button"
+        android:onClick="onClick"/>
+
+</RelativeLayout>
