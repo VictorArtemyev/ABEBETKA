@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class WordPuzzleActivity extends Activity implements View.OnTouchListener {
@@ -41,19 +42,24 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private MediaPlayer mMediaPlayerSound;
     private MediaPlayer mMediaPlayerNameOfWord;
 
-    private List<Integer> mWordsLayouts = new ArrayList<Integer>();
+    private List<Integer> mWordsLayouts = new ArrayList<Integer>(3);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initWordsLayouts();
+        initAnimation();
+        showNewWord();
+        initMedia();
+    }
+
+    private void initWordsLayouts() {
         mWordsLayouts.add(R.layout.word_bus_layout);
         mWordsLayouts.add(R.layout.word_pineapple_layout);
         mWordsLayouts.add(R.layout.word_shark_layout);
 
-        initAnimation();
-        showNewWord();
-        initMedia();
+        Collections.shuffle(mWordsLayouts);
     }
 
     @Override
@@ -73,6 +79,18 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         initBackground();
         initMedia();
         super.onRestart();
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.home_button:
+                startActivity(new Intent(WordPuzzleActivity.this, ChoiceOfLetterActivity.class));
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     @Override

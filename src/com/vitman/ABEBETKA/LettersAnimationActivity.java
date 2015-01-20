@@ -10,10 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AbsoluteLayout;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import java.lang.ref.WeakReference;
@@ -25,10 +22,8 @@ public class LettersAnimationActivity extends Activity {
 
     private WeakReference<Bitmap> mBackGround;
 
-    private AbsoluteLayout mLettersMoveLayout;
+    private RelativeLayout mLettersMoveLayout;
     private RelativeLayout mLayoutForBackground;
-    private ImageButton mNextButton;
-    private ImageButton mPreviousButton;
 
     private List<View> mAllViews = new ArrayList<View>();
     private MediaPlayer mMediaPlayerBackground;
@@ -53,21 +48,10 @@ public class LettersAnimationActivity extends Activity {
         }
 
         startMediaPlayerBackground();
-
         setAnimationOnView(mAllViews);
-
-        initButtons();
-
         isMediaPlaying();
     }
 
-    private void initButtons() {
-        mNextButton = (ImageButton) findViewById(R.id.Next_Button);
-        mNextButton.setVisibility(View.GONE);
-
-        mPreviousButton = (ImageButton) findViewById(R.id.Previous_Button);
-        mPreviousButton.setVisibility(View.GONE);
-    }
 
     private void startMediaPlayerBackground() {
         mMediaPlayerBackground = MediaPlayer.create
@@ -88,7 +72,7 @@ public class LettersAnimationActivity extends Activity {
                 setLettersAnimationLayouts(R.id.b_background, R.id.b_move);
                 startLettersSong(R.raw.song_b);
                 break;
-            case R.layout.c_letter_animation_layout:
+            case R.layout.v_letter_animation_layout:
                 setLettersAnimationLayouts(R.id.c_background, R.id.c_move);
                 startLettersSong(R.raw.song_c);
                 break;
@@ -99,7 +83,7 @@ public class LettersAnimationActivity extends Activity {
 
     private void setLettersAnimationLayouts(int background, int move) {
         mLayoutForBackground = (RelativeLayout) findViewById(background);
-        mLettersMoveLayout = (AbsoluteLayout) findViewById(move);
+        mLettersMoveLayout = (RelativeLayout) findViewById(move);
     }
 
     private void startLettersSong(int lettersSong) {
@@ -182,16 +166,16 @@ public class LettersAnimationActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
-        super.onBackPressed();
+//        startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
+//        super.onBackPressed();
     }
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.Next_Button :
-                startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
-                break;
-            case R.id.Previous_Button :
+//            case R.id.Next_Button :
+//                startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
+//                break;
+            case R.id.home_button :
                 startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
                 break;
         }
@@ -206,14 +190,15 @@ public class LettersAnimationActivity extends Activity {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            mMediaPlayerBackground.setVolume(1f, 1f);
-            Animation animation = AnimationUtils.loadAnimation(LettersAnimationActivity.this, R.anim.appear_button);
-            super.handleMessage(msg);
-            mNextButton.setVisibility(View.VISIBLE);
-            mNextButton.startAnimation(animation);
-
-            mPreviousButton.setVisibility(View.VISIBLE);
-            mPreviousButton.startAnimation(animation);
+//            mMediaPlayerBackground.setVolume(1f, 1f);
+//            Animation animation = AnimationUtils.loadAnimation(LettersAnimationActivity.this, R.anim.appear_button);
+//            super.handleMessage(msg);
+//            mNextButton.setVisibility(View.VISIBLE);
+//            mNextButton.startAnimation(animation);
+//
+//            mHomeButton.setVisibility(View.VISIBLE);
+//            mHomeButton.startAnimation(animation);
+            startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
         }
     };
 

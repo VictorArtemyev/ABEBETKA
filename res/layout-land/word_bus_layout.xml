@@ -20,7 +20,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/v_black"
-        android:src="@drawable/a_black"
+        android:src="@drawable/a_letter_black"
         android:tag="a_black"/>
 
     <ImageView
@@ -30,7 +30,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/t_black"
-        android:src="@drawable/v_black"
+        android:src="@drawable/v_letter_black"
         android:tag="v_black"/>
 
     <ImageView
@@ -40,7 +40,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/o_black"
-        android:src="@drawable/t_black"
+        android:src="@drawable/t_letter_black"
         android:tag="t_black"/>
 
     <ImageView
@@ -50,7 +50,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:src="@drawable/o_black"
+        android:src="@drawable/o_letter_black"
         android:tag="o_black"/>
 
     <ImageView
@@ -60,7 +60,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/o_black"
-        android:src="@drawable/b_black"
+        android:src="@drawable/b_letter_black"
         android:tag="b_black"/>
 
     <ImageView
@@ -70,7 +70,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/b_black"
-        android:src="@drawable/y_black"
+        android:src="@drawable/u_letter_black"
         android:tag="y_black"/>
 
     <ImageView
@@ -80,7 +80,7 @@
         android:layout_below="@+id/bus_image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/y_black"
-        android:src="@drawable/c_black"
+        android:src="@drawable/s_letter_black"
         android:tag="c_black"/>
 
     <!--====================Color Letters====================-->
@@ -93,7 +93,7 @@
         android:layout_marginBottom="150dp"
         android:layout_marginRight="10dp"
         android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/a"
+        android:src="@drawable/a_letter"
         android:tag="a"/>
 
     <ImageView
@@ -104,7 +104,7 @@
         android:layout_marginBottom="80dp"
         android:layout_marginRight="60dp"
         android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/v"
+        android:src="@drawable/v_letter"
         android:tag="v"/>
 
     <ImageView
@@ -114,7 +114,7 @@
         android:layout_alignBottom="@id/bus_image"
         android:layout_marginBottom="120dp"
         android:layout_toRightOf="@id/bus_image"
-        android:src="@drawable/t"
+        android:src="@drawable/t_letter"
         android:tag="t"/>
 
     <ImageView
@@ -125,7 +125,7 @@
         android:layout_marginLeft="80dp"
         android:layout_marginBottom="190dp"
         android:layout_toRightOf="@id/bus_image"
-        android:src="@drawable/b"
+        android:src="@drawable/b_letter"
         android:tag="b"/>
 
     <ImageView
@@ -136,7 +136,7 @@
         android:layout_marginBottom="200dp"
         android:layout_marginRight="70dp"
         android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/o"
+        android:src="@drawable/o_letter"
         android:tag="o"/>
 
     <ImageView
@@ -147,7 +147,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp"
         android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/y"
+        android:src="@drawable/u_letter"
         android:tag="y"/>
 
     <ImageView
@@ -158,7 +158,19 @@
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="40dp"
         android:layout_toRightOf="@id/bus_image"
-        android:src="@drawable/c"
+        android:src="@drawable/s_letter"
         android:tag="c"/>
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="onClick"
+        android:background="@drawable/button_home"
+        android:tag="_black"/>
 
 </RelativeLayout>

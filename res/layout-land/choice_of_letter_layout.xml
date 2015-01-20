@@ -12,7 +12,7 @@
         android:layout_height="100dp"
         android:layout_alignTop="@+id/B_Button"
         android:layout_toEndOf="@+id/B_Button"
-        android:background="@drawable/c_button"
+        android:background="@drawable/v_button"
         android:onClick="onClick"/>
 
     <ImageButton

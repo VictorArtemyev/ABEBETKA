@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    android:id="@+id/a_letter_layout"
+    android:id="@+id/c_letter_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,18 +11,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/a_body"
+        android:src="@drawable/v_body"
         android:tag="@string/tag_body"/>
 
     <ImageView
-        android:id="@+id/position_hat"
+        android:id="@+id/position_left_leg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/body"
         android:layout_alignTop="@id/body"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/a_spot_hat"/>
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/v_spot_left_leg"/>
 
     <ImageView
         android:id="@+id/position_left_hand"
@@ -30,9 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/body"
         android:layout_alignTop="@id/body"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="140dp"
-        android:src="@drawable/a_spot_left_hand"/>
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="85dp"
+        android:src="@drawable/v_spot_left_hand"/>
 
     <ImageView
         android:id="@+id/position_right_hand"
@@ -40,9 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/body"
         android:layout_alignTop="@id/body"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/a_spot_right_hand"/>
+        android:layout_marginTop="90dp"
+        android:src="@drawable/v_spot_right_hand"/>
 
     <ImageView
         android:id="@+id/position_right_leg"
@@ -50,9 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/body"
         android:layout_alignTop="@id/body"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="225dp"
-        android:src="@drawable/a_spot_right_leg"/>
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/v_spot_right_leg"/>
 
     <!--======================================-->
 
@@ -61,9 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/body"
-        android:layout_toLeftOf="@id/body"
         android:layout_marginRight="50dp"
-        android:src="@drawable/a_left_hand"
+        android:layout_toLeftOf="@id/body"
+        android:src="@drawable/v_left_hand"
         android:tag="@string/tag_left_hand"/>
 
     <ImageView
@@ -71,38 +70,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/body"
-        android:layout_toLeftOf="@id/body"
         android:layout_marginRight="50dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/a_right_hand"
-        android:tag="@string/tag_right_hand"/>
-
-    <ImageView
-        android:id="@+id/hat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/body"
         android:layout_toLeftOf="@id/body"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="160dp"
-        android:src="@drawable/a_hat"
-        android:tag="@string/tag_hat"/>
+        android:src="@drawable/v_right_hand"
+        android:tag="@string/tag_right_hand"/>
 
     <ImageView
         android:id="@+id/right_leg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/body"
-        android:layout_toLeftOf="@id/body"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="240dp"
-        android:src="@drawable/a_right_leg"
+        android:layout_marginTop="165dp"
+        android:layout_toLeftOf="@id/body"
+        android:src="@drawable/v_right_leg"
         android:tag="@string/tag_right_leg"/>
+
+    <ImageView
+        android:id="@+id/left_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/body"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="255dp"
+        android:layout_toLeftOf="@id/body"
+        android:src="@drawable/v_left_leg"
+        android:tag="@string/tag_left_leg"/>
 
     <ImageButton
         android:id="@+id/home_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="20dp"

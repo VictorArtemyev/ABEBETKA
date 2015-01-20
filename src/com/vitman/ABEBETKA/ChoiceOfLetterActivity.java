@@ -63,7 +63,7 @@ public class ChoiceOfLetterActivity extends Activity {
                 break;
             case R.id.C_Button :
                 startMediaPlayerGreeting(R.raw.greeting_letter_c);
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.c_puzzle_letter_layout);
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.v_puzzle_letter_layout);
                 startActivity(mIntent);
                 break;
             default :

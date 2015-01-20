@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_x="0dp"
             android:layout_y="0dp"
-            android:src="@drawable/c_body_animation"/>
+            android:src="@drawable/v_body_animation"/>
 
         <ImageView
             android:id="@+id/mouth"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_x="67dp"
             android:layout_y="-5dp"
-            android:src="@drawable/c_eyes"
+            android:src="@drawable/v_eyes"
             android:tag="@string/tag_eyes"/>
 
         <ImageView
@@ -45,7 +45,7 @@
             android:layout_height="80dp"
             android:layout_x="0dp"
             android:layout_y="94dp"
-            android:src="@drawable/c_right_hand"
+            android:src="@drawable/v_right_hand"
             android:tag="@string/tag_left_hand"/>
 
         <ImageView
@@ -54,7 +54,7 @@
             android:layout_height="80dp"
             android:layout_x="68dp"
             android:layout_y="190dp"
-            android:src="@drawable/c_right_leg"
+            android:src="@drawable/v_right_leg"
             android:tag="@string/tag_right_leg"/>
 
         <ImageView
@@ -63,7 +63,7 @@
             android:layout_height="70dp"
             android:layout_x="196dp"
             android:layout_y="90dp"
-            android:src="@drawable/c_left_hand"
+            android:src="@drawable/v_left_hand"
             android:tag="@string/tag_left_hand"/>
 
         <ImageView
@@ -72,7 +72,7 @@
             android:layout_height="80dp"
             android:layout_x="154dp"
             android:layout_y="188dp"
-            android:src="@drawable/c_left_leg"
+            android:src="@drawable/v_left_leg"
             android:tag="@string/tag_left_leg"/>
     </AbsoluteLayout>
 
@@ -85,7 +85,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:onClick="onClick"
-        android:background="@drawable/next_button"/>
+        android:background="@drawable/button_next"/>
 
     <ImageButton
         android:id="@+id/Previous_Button"
@@ -95,7 +95,7 @@
         android:layout_toLeftOf="@+id/c_move"
         android:layout_marginRight="50dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/previous_button"
+        android:background="@drawable/button_previous"
         android:onClick="onClick"/>
 
 </RelativeLayout>

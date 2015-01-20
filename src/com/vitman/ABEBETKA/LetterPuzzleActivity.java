@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @SuppressWarnings("deprecation")
 public class LetterPuzzleActivity extends Activity implements View.OnTouchListener {
@@ -32,7 +31,6 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     private int mLayoutId;
 
     private RelativeLayout mMainLayout;
-    private RelativeLayout mLetterLayout;
 
     private MediaPlayer mMediaPlayerBackground;
     private MediaPlayer mMediaPlayerSound;
@@ -40,6 +38,8 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     private Animation mAnimation;
     private Intent mIntent;
     private View correctLettersPartSpot;
+
+    private RelativeLayout.LayoutParams mLayoutParams;
 
 
     @Override
@@ -63,6 +63,7 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
         for (int i = 0; i < mCountOfViews; i++) {
             mAllViews.add(mMainLayout.getChildAt(i));
         }
+
         setListenerAndAnimationOnViewByTag(mAllViews);
     }
 
@@ -72,13 +73,10 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
                 mMainLayout = (RelativeLayout) findViewById(R.id.a_letter_layout);
                 break;
             case R.layout.b_puzzle_letter_layout:
-               mMainLayout = (RelativeLayout) findViewById(R.id.b_letter_layout);
-                break;
-            case R.layout.c_puzzle_letter_layout:
-                mMainLayout = (RelativeLayout) findViewById(R.id.c_letter_layout);
-            case R.layout.test :
                 mMainLayout = (RelativeLayout) findViewById(R.id.b_letter_layout);
                 break;
+            case R.layout.v_puzzle_letter_layout:
+                mMainLayout = (RelativeLayout) findViewById(R.id.c_letter_layout);
             default:
                 break;
         }
@@ -110,35 +108,30 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     }
 
     @Override
+    public void onBackPressed() {
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.home_button :
+                startActivity(new Intent(LetterPuzzleActivity.this, ChoiceOfLetterActivity.class));
+                break;
+        }
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent event) {
         final int X = (int) event.getRawX();
         final int Y = (int) event.getRawY();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-        int[] rules = layoutParams.getRules();
-        Log.d("DEV", Arrays.toString(rules));
-        if(rules[10] == 0) {
-            Log.d("DEV", "in if");
-            int left = view.getLeft();
-            int right = view.getRight();
-            int top = view.getTop();
-            int bottom = view.getBottom();
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-            layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
-            layoutParams.addRule(RelativeLayout.LEFT_OF, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_TOP, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-            layoutParams.leftMargin = left;
-            layoutParams.topMargin = top;
-            view.setLayoutParams(layoutParams);
-        }
+        mLayoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+        setAlignParentLayoutTop(view);
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 view.setScaleX(1.5f);
                 view.setScaleY(1.5f);
-                xDelta = X - layoutParams.leftMargin;
-                yDelta = Y - layoutParams.topMargin;
+                xDelta = X - mLayoutParams.leftMargin;
+                yDelta = Y - mLayoutParams.topMargin;
                 view.clearAnimation();
                 break;
 
@@ -166,16 +159,38 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                layoutParams.leftMargin = X - xDelta;
-                layoutParams.topMargin = Y - yDelta;
+                mLayoutParams.leftMargin = X - xDelta;
+                mLayoutParams.topMargin = Y - yDelta;
 
-                layoutParams.rightMargin = -50;
-                layoutParams.bottomMargin = -50;
-                view.setLayoutParams(layoutParams);
+                mLayoutParams.rightMargin = -50;
+                mLayoutParams.bottomMargin = -50;
+                view.setLayoutParams(mLayoutParams);
                 break;
         }
         mMainLayout.invalidate();
         return true;
+    }
+
+    private void setAlignParentLayoutTop(View view) {
+        int[] rules = mLayoutParams.getRules();
+        if (rules[10] == 0) {
+            int left = view.getLeft();
+            int right = view.getRight();
+            int top = view.getTop();
+            int bottom = view.getBottom();
+
+            mLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+            mLayoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
+            mLayoutParams.addRule(RelativeLayout.LEFT_OF, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_TOP, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+
+            mLayoutParams.leftMargin = left;
+            mLayoutParams.topMargin = top;
+
+            view.setLayoutParams(mLayoutParams);
+        }
     }
 
     // checks relatively separated part of letter to correct position
@@ -224,8 +239,8 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
             case R.layout.b_puzzle_letter_layout:
                 mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.b_letter_animation_layout);
                 break;
-            case R.layout.c_puzzle_letter_layout:
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.c_letter_animation_layout);
+            case R.layout.v_puzzle_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.v_letter_animation_layout);
                 break;
         }
     }
