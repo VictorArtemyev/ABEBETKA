@@ -21,7 +21,7 @@
         android:layout_below="@+id/shark_image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/k_black"
-        android:src="@drawable/a_letter_black"
+        android:src="@drawable/letter_a_black"
         android:tag="a1_black"/>
 
     <ImageView
@@ -31,7 +31,7 @@
         android:layout_below="@+id/shark_image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/y_black"
-        android:src="@drawable/k_letter_black"
+        android:src="@drawable/letter_k_black"
         android:tag="k_black"/>
 
     <ImageView
@@ -41,7 +41,7 @@
         android:layout_below="@+id/shark_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:src="@drawable/u_letter_black"
+        android:src="@drawable/letter_u_black"
         android:tag="y_black"/>
 
     <ImageView
@@ -51,7 +51,7 @@
         android:layout_below="@+id/shark_image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/y_black"
-        android:src="@drawable/l_letter_black"
+        android:src="@drawable/letter_l_black"
         android:tag="l_black"/>
 
     <ImageView
@@ -61,7 +61,7 @@
         android:layout_below="@+id/shark_image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/l_black"
-        android:src="@drawable/a_letter_black"
+        android:src="@drawable/letter_a_black"
         android:tag="a2_black"/>
 
     <ImageView
@@ -72,7 +72,7 @@
         android:layout_marginBottom="60dp"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@id/shark_image"
-        android:src="@drawable/a_letter"
+        android:src="@drawable/letter_a"
         android:tag="a1"/>
 
     <!--====================Color Letters====================-->
@@ -85,7 +85,7 @@
         android:layout_marginBottom="170dp"
         android:layout_marginLeft="70dp"
         android:layout_toRightOf="@id/shark_image"
-        android:src="@drawable/k_letter"
+        android:src="@drawable/letter_k"
         android:tag="k"/>
 
     <ImageView
@@ -96,7 +96,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="60dp"
         android:layout_toLeftOf="@id/shark_image"
-        android:src="@drawable/u_letter"
+        android:src="@drawable/letter_u"
         android:tag="y"/>
 
     <ImageView
@@ -107,7 +107,7 @@
         android:layout_marginBottom="90dp"
         android:layout_marginRight="20dp"
         android:layout_toLeftOf="@id/shark_image"
-        android:src="@drawable/l_letter"
+        android:src="@drawable/letter_l"
         android:tag="l"/>
 
     <ImageView
@@ -118,7 +118,7 @@
         android:layout_marginBottom="190dp"
         android:layout_marginRight="80dp"
         android:layout_toLeftOf="@id/shark_image"
-        android:src="@drawable/a_letter"
+        android:src="@drawable/letter_a"
         android:tag="a2"/>
 
     <ImageButton

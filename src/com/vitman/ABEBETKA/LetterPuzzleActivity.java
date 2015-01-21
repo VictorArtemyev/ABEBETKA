@@ -20,7 +20,7 @@ import java.util.ArrayList;
 @SuppressWarnings("deprecation")
 public class LetterPuzzleActivity extends Activity implements View.OnTouchListener {
 
-    private static final int MAX_LETTERS_LIMBS = 1;
+    private static final int MAX_LETTERS_LIMBS = 4;
 
     private int mCountPartOfLetter;
     private int xDelta;
@@ -69,13 +69,13 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
 
     private void setLayout(int layout) {
         switch (layout) {
-            case R.layout.a_puzzle_letter_layout:
+            case R.layout.puzzle_a_letter_layout:
                 mMainLayout = (RelativeLayout) findViewById(R.id.a_letter_layout);
                 break;
-            case R.layout.b_puzzle_letter_layout:
+            case R.layout.puzzle_b_letter_layout:
                 mMainLayout = (RelativeLayout) findViewById(R.id.b_letter_layout);
                 break;
-            case R.layout.v_puzzle_letter_layout:
+            case R.layout.puzzle_v_letter_layout:
                 mMainLayout = (RelativeLayout) findViewById(R.id.c_letter_layout);
             default:
                 break;
@@ -233,14 +233,14 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     private void initIntent() {
         mIntent = new Intent(LetterPuzzleActivity.this, LettersAnimationActivity.class);
         switch (mLayoutId) {
-            case R.layout.a_puzzle_letter_layout:
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.a_letter_animation_layout);
+            case R.layout.puzzle_a_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_a_letter_layout);
                 break;
-            case R.layout.b_puzzle_letter_layout:
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.b_letter_animation_layout);
+            case R.layout.puzzle_b_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_b_letter_layout);
                 break;
-            case R.layout.v_puzzle_letter_layout:
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.v_letter_animation_layout);
+            case R.layout.puzzle_v_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_v_letter_layout);
                 break;
         }
     }

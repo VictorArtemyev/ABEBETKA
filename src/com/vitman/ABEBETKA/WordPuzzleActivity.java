@@ -22,6 +22,9 @@ import java.util.List;
 
 public class WordPuzzleActivity extends Activity implements View.OnTouchListener {
 
+    private static final String IMAGES_TAG = "image_black";
+    private static final String BLACK_LETTERS_TAG = "_black";
+
     private int xDelta;
     private int yDelta;
 
@@ -58,7 +61,6 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         mWordsLayouts.add(R.layout.word_bus_layout);
         mWordsLayouts.add(R.layout.word_pineapple_layout);
         mWordsLayouts.add(R.layout.word_shark_layout);
-
         Collections.shuffle(mWordsLayouts);
     }
 
@@ -90,8 +92,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     }
 
     @Override
-    public void onBackPressed() {
-    }
+    public void onBackPressed() {}
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
@@ -101,16 +102,15 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         int[] rules = layoutParams.getRules();
         Log.d("DEV", Arrays.toString(rules));
         if(rules[10] == 0) {
-            Log.d("DEV", "in if");
             int left = view.getLeft();
-            int right = view.getRight();
             int top = view.getTop();
-            int bottom = view.getBottom();
+
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
             layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
             layoutParams.addRule(RelativeLayout.LEFT_OF, 0);
             layoutParams.addRule(RelativeLayout.ALIGN_TOP, 0);
             layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
+
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
             layoutParams.leftMargin = left;
             layoutParams.topMargin = top;
@@ -125,7 +125,6 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 getRelatedLetterView(view.getTag()).startAnimation(mAnimationShake);
                 xDelta = X - layoutParams.leftMargin;
                 yDelta = Y - layoutParams.topMargin;
-
                 break;
 
             case MotionEvent.ACTION_UP:
@@ -168,7 +167,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
 
     private void setListenerOnViews(List<View> views) {
         for (View view : views) {
-            if (!view.getTag().toString().endsWith("_black")) {
+            if (!view.getTag().toString().endsWith(BLACK_LETTERS_TAG)) {
                 view.setOnTouchListener(WordPuzzleActivity.this);
             }
         }
@@ -255,7 +254,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
 
 
     public void startWordsImageAnimation() {
-        mMainLayout.findViewWithTag("image_black").startAnimation(mAnimationAppear);
+        mMainLayout.findViewWithTag(IMAGES_TAG).startAnimation(mAnimationAppear);
     }
 
     public boolean allWordsAreCompleted() {

@@ -17,7 +17,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class ChoiceOfLetterActivity extends Activity {
-
     private int mCountOfViews;
     private ArrayList<View> mAllViews = new ArrayList<View>();
 
@@ -53,17 +52,17 @@ public class ChoiceOfLetterActivity extends Activity {
         switch (view.getId()) {
             case R.id.A_Button :
                 startMediaPlayerGreeting(R.raw.greeting_letter_a);
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.a_puzzle_letter_layout);
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.puzzle_a_letter_layout);
                 startActivity(mIntent);
                 break;
             case R.id.B_Button :
                 startMediaPlayerGreeting(R.raw.greeting_letter_b);
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.b_puzzle_letter_layout);
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.puzzle_b_letter_layout);
                 startActivity(mIntent);
                 break;
             case R.id.C_Button :
                 startMediaPlayerGreeting(R.raw.greeting_letter_c);
-                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.v_puzzle_letter_layout);
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.puzzle_v_letter_layout);
                 startActivity(mIntent);
                 break;
             default :

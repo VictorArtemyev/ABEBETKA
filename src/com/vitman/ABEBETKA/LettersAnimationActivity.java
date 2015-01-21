@@ -64,15 +64,15 @@ public class LettersAnimationActivity extends Activity {
     //initializes current layouts
     private void initLayouts(int layout) {
         switch (layout) {
-            case R.layout.a_letter_animation_layout :
+            case R.layout.animation_a_letter_layout:
                 setLettersAnimationLayouts(R.id.a_background, R.id.a_move);
                 startLettersSong(R.raw.song_a);
                 break;
-            case R.layout.b_letter_animation_layout :
+            case R.layout.animation_b_letter_layout:
                 setLettersAnimationLayouts(R.id.b_background, R.id.b_move);
                 startLettersSong(R.raw.song_b);
                 break;
-            case R.layout.v_letter_animation_layout:
+            case R.layout.animation_v_letter_layout:
                 setLettersAnimationLayouts(R.id.c_background, R.id.c_move);
                 startLettersSong(R.raw.song_c);
                 break;
@@ -166,15 +166,10 @@ public class LettersAnimationActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-//        startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
-//        super.onBackPressed();
     }
 
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.Next_Button :
-//                startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
-//                break;
             case R.id.home_button :
                 startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
                 break;
@@ -211,6 +206,11 @@ public class LettersAnimationActivity extends Activity {
                   if(!checkMediaPlaying()) {
                       break;
                   }
+                }
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 handler.sendEmptyMessage(0);
             }
