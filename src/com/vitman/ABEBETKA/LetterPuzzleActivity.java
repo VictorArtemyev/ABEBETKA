@@ -171,13 +171,12 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
         return true;
     }
 
+    //sets layout params for view
     private void setAlignParentLayoutTop(View view) {
         int[] rules = mLayoutParams.getRules();
         if (rules[10] == 0) {
             int left = view.getLeft();
-            int right = view.getRight();
             int top = view.getTop();
-            int bottom = view.getBottom();
 
             mLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
             mLayoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
@@ -311,7 +310,8 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     }
 
     private void initBackground() {
-        mBackground = new WeakReference<Bitmap>(BitmapFactory.decodeResource(getResources(), R.drawable.background_black));
+        mBackground = new WeakReference<Bitmap>
+                (BitmapFactory.decodeResource(getResources(), R.drawable.background_black));
         mMainLayout.setBackground(new BitmapDrawable(mBackground.get()));
     }
 

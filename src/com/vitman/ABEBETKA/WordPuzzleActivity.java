@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,10 +15,10 @@ import android.widget.RelativeLayout;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class WordPuzzleActivity extends Activity implements View.OnTouchListener {
 
     private static final String IMAGES_TAG = "image_black";
@@ -33,6 +32,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private int mCountOfViews;
 
     private List<View> mAllViews = new ArrayList<View>();
+    private List<View> mBlackLettersViews = new ArrayList<View>();
 
     private View mCorrectWordsLetterSpot;
 
@@ -45,7 +45,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private MediaPlayer mMediaPlayerSound;
     private MediaPlayer mMediaPlayerNameOfWord;
 
-    private List<Integer> mWordsLayouts = new ArrayList<Integer>(3);
+    private List<Integer> mWordsLayouts = new ArrayList<Integer>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,7 +100,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         final int Y = (int) event.getRawY();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         int[] rules = layoutParams.getRules();
-        Log.d("DEV", Arrays.toString(rules));
+
         if(rules[10] == 0) {
             int left = view.getLeft();
             int top = view.getTop();
@@ -122,7 +122,8 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
             case MotionEvent.ACTION_DOWN:
                 view.setScaleX(1.5f);
                 view.setScaleY(1.5f);
-                getRelatedLetterView(view.getTag()).startAnimation(mAnimationShake);
+
+                startAnimationOnBlackLetters(view);
                 xDelta = X - layoutParams.leftMargin;
                 yDelta = Y - layoutParams.topMargin;
                 break;
@@ -130,7 +131,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
             case MotionEvent.ACTION_UP:
                 view.setScaleX(1f);
                 view.setScaleY(1f);
-                getRelatedLetterView(view.getTag()).clearAnimation();
+                stopAnimationOnBlackLetters();
                 boolean isCorrectPosition = checkLetterPosition(view);
                 if (isCorrectPosition) {
                     mMediaPlayerSound.start();
@@ -165,6 +166,24 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         return true;
     }
 
+    //starts animation on black letters
+    private void startAnimationOnBlackLetters(View colorLetterView) {
+        String viewsTag = String.valueOf(colorLetterView.getTag());
+        String firstCharOfLettersTag = String.valueOf(viewsTag.charAt(0));
+        for (View view : mBlackLettersViews) {
+            if (String.valueOf(view.getTag()).startsWith(firstCharOfLettersTag)) {
+                view.startAnimation(mAnimationShake);
+            }
+        }
+    }
+
+    //stops animation on black letters
+    private void stopAnimationOnBlackLetters() {
+        for (View view : mBlackLettersViews) {
+                view.clearAnimation();
+            }
+    }
+
     private void setListenerOnViews(List<View> views) {
         for (View view : views) {
             if (!view.getTag().toString().endsWith(BLACK_LETTERS_TAG)) {
@@ -173,15 +192,30 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         }
     }
 
-    // checks relatively separated part of letter to correct position
-    public boolean checkLetterPosition(View view) {
-        float positionX = view.getX();
-        float positionY = view.getY();
+    //gets correct related black letters view
+    private View getRelatedLetterView(View colorLetter) {
+        View correctView = null;
+        String viewsTag = (String) colorLetter.getTag();
+        String firstCharOfLettersTag = String.valueOf(viewsTag.charAt(0));
 
-        mCorrectWordsLetterSpot = getRelatedLetterView(view.getTag());
+        for (View blackLetter : mBlackLettersViews) {
+            if (blackLetter.getTag().toString().startsWith(firstCharOfLettersTag)) {
+                if (checkRelativePosition(colorLetter, blackLetter)) {
+                    correctView = blackLetter;
+                }
+            }
+        }
+        mBlackLettersViews.remove(correctView);
+        return correctView;
+    }
 
-        float correctPositionX = mCorrectWordsLetterSpot.getX();
-        float correctPositionY = mCorrectWordsLetterSpot.getY();
+    //checks relative position of a color letter and a black letter
+    private boolean checkRelativePosition(View colorLetter, View blackLetter) {
+        float positionX = colorLetter.getX();
+        float positionY = colorLetter.getY();
+
+        float correctPositionX = blackLetter.getX();
+        float correctPositionY = blackLetter.getY();
 
         float minBorderPositionX = correctPositionX - 100;
         float maxBorderPositionX = correctPositionX + 100;
@@ -190,17 +224,16 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
 
         return (positionX >= minBorderPositionX && positionX <= maxBorderPositionX) &&
                 (positionY >= minBorderPositionY && positionY <= maxBorderPositionY);
+    }
 
+    public boolean checkLetterPosition(View view) {
+        mCorrectWordsLetterSpot = getRelatedLetterView(view);
+        return mCorrectWordsLetterSpot != null;
     }
 
     //checks if word is completed
     private boolean checkCompletedWord() {
         return mAmountLettersOfWord == mCountOfLettersMatches;
-    }
-
-    //gets correct view of letters of word
-    private View getRelatedLetterView(Object tag) {
-        return mMainLayout.findViewWithTag(tag + "_black");
     }
 
     public void showNewWord() {
@@ -247,7 +280,11 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         mAmountLettersOfWord = (mCountOfViews - 1) / 2;
         mCountOfLettersMatches = 0;
         for (int i = 0; i < mCountOfViews; i++) {
-            mAllViews.add(mMainLayout.getChildAt(i));
+            View view = mMainLayout.getChildAt(i);
+            mAllViews.add(view);
+            if (String.valueOf(view.getTag()).endsWith(BLACK_LETTERS_TAG)) {
+                mBlackLettersViews.add(view);
+            }
         }
         setListenerOnViews(mAllViews);
     }
