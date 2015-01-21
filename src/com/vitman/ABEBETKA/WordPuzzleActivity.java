@@ -46,6 +46,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private MediaPlayer mMediaPlayerNameOfWord;
 
     private List<Integer> mWordsLayouts = new ArrayList<Integer>();
+    private RelativeLayout.LayoutParams mLayoutParams;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,24 +99,8 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     public boolean onTouch(View view, MotionEvent event) {
         final int X = (int) event.getRawX();
         final int Y = (int) event.getRawY();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-        int[] rules = layoutParams.getRules();
-
-        if(rules[10] == 0) {
-            int left = view.getLeft();
-            int top = view.getTop();
-
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-            layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
-            layoutParams.addRule(RelativeLayout.LEFT_OF, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_TOP, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
-
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-            layoutParams.leftMargin = left;
-            layoutParams.topMargin = top;
-            view.setLayoutParams(layoutParams);
-        }
+        mLayoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+        setLayoutParamsForView(view);
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
@@ -124,8 +109,8 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 view.setScaleY(1.5f);
 
                 startAnimationOnBlackLetters(view);
-                xDelta = X - layoutParams.leftMargin;
-                yDelta = Y - layoutParams.topMargin;
+                xDelta = X - mLayoutParams.leftMargin;
+                yDelta = Y - mLayoutParams.topMargin;
                 break;
 
             case MotionEvent.ACTION_UP:
@@ -154,16 +139,37 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
 
             case MotionEvent.ACTION_MOVE:
 
-                layoutParams.leftMargin = X - xDelta;
-                layoutParams.topMargin = Y - yDelta;
-                layoutParams.rightMargin = -50;
-                layoutParams.bottomMargin = -50;
+                mLayoutParams.leftMargin = X - xDelta;
+                mLayoutParams.topMargin = Y - yDelta;
+                mLayoutParams.rightMargin = -50;
+                mLayoutParams.bottomMargin = -50;
 
-                view.setLayoutParams(layoutParams);
+                view.setLayoutParams(mLayoutParams);
                 break;
         }
         mMainLayout.invalidate();
         return true;
+    }
+
+    //sets layout params for view
+    private void setLayoutParamsForView(View view) {
+        int[] rules = mLayoutParams.getRules();
+        if (rules[10] == 0) {
+            int left = view.getLeft();
+            int top = view.getTop();
+
+            mLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+            mLayoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
+            mLayoutParams.addRule(RelativeLayout.LEFT_OF, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_TOP, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
+            mLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+
+            mLayoutParams.leftMargin = left;
+            mLayoutParams.topMargin = top;
+
+            view.setLayoutParams(mLayoutParams);
+        }
     }
 
     //starts animation on black letters

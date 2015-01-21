@@ -124,7 +124,7 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
         final int X = (int) event.getRawX();
         final int Y = (int) event.getRawY();
         mLayoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-        setAlignParentLayoutTop(view);
+        setLayoutParamsForView(view);
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
@@ -172,7 +172,7 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     }
 
     //sets layout params for view
-    private void setAlignParentLayoutTop(View view) {
+    private void setLayoutParamsForView(View view) {
         int[] rules = mLayoutParams.getRules();
         if (rules[10] == 0) {
             int left = view.getLeft();
