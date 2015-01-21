@@ -226,7 +226,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 (positionY >= minBorderPositionY && positionY <= maxBorderPositionY);
     }
 
-    public boolean checkLetterPosition(View view) {
+    private boolean checkLetterPosition(View view) {
         mCorrectWordsLetterSpot = getRelatedLetterView(view);
         return mCorrectWordsLetterSpot != null;
     }
@@ -236,7 +236,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         return mAmountLettersOfWord == mCountOfLettersMatches;
     }
 
-    public void showNewWord() {
+    private void showNewWord() {
         if (allWordsAreCompleted()) {
             startActivity(new Intent(WordPuzzleActivity.this, ChoiceOfLetterActivity.class));
             return;
@@ -247,7 +247,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         mWordsLayouts.remove(0);
     }
 
-    public void initLayouts(int idLayout) {
+    private void initLayouts(int idLayout) {
         switch (idLayout) {
             case R.layout.word_pineapple_layout:
                 setWordPuzzleLayouts(R.id.word_pineapple);
@@ -275,7 +275,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         mMediaPlayerNameOfWord.start();
     }
 
-    public void initViews() {
+    private void initViews() {
         mCountOfViews = mMainLayout.getChildCount();
         mAmountLettersOfWord = (mCountOfViews - 1) / 2;
         mCountOfLettersMatches = 0;
@@ -290,11 +290,11 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     }
 
 
-    public void startWordsImageAnimation() {
+    private void startWordsImageAnimation() {
         mMainLayout.findViewWithTag(IMAGES_TAG).startAnimation(mAnimationAppear);
     }
 
-    public boolean allWordsAreCompleted() {
+    private boolean allWordsAreCompleted() {
         return mWordsLayouts.isEmpty();
     }
 
