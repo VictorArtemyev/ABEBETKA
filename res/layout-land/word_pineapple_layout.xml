@@ -77,6 +77,38 @@
     <!--====================Color Letters====================-->
 
     <ImageView
+        android:id="@+id/n2_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/pineapple_image"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/pineapple_image"
+        android:src="@drawable/letter_n"
+        android:tag="n2"/>
+
+    <ImageView
+        android:id="@+id/a3_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/pineapple_image"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="90dp"
+        android:layout_toLeftOf="@id/pineapple_image"
+        android:src="@drawable/letter_a"
+        android:tag="a3"/>
+
+    <ImageView
+        android:id="@+id/a2_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/pineapple_image"
+        android:layout_marginBottom="170dp"
+        android:layout_toLeftOf="@id/pineapple_image"
+        android:src="@drawable/letter_a"
+        android:tag="a2"/>
+
+    <ImageView
         android:id="@+id/a1_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,28 +118,6 @@
         android:layout_toRightOf="@id/pineapple_image"
         android:src="@drawable/letter_a"
         android:tag="a1"/>
-
-    <ImageView
-        android:id="@+id/n1_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/pineapple_image"
-        android:layout_marginBottom="150dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/pineapple_image"
-        android:src="@drawable/letter_n"
-        android:tag="n1"/>
-
-    <ImageView
-        android:id="@+id/n2_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/pineapple_image"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="80dp"
-        android:layout_toLeftOf="@id/pineapple_image"
-        android:src="@drawable/letter_n"
-        android:tag="n2"/>
 
     <ImageView
         android:id="@+id/c_color"
@@ -121,38 +131,38 @@
         android:tag="c"/>
 
     <ImageView
-        android:id="@+id/a2_color"
+        android:id="@+id/n1_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/pineapple_image"
-        android:layout_marginBottom="180dp"
-        android:layout_marginRight="90dp"
-        android:layout_toLeftOf="@id/pineapple_image"
-        android:src="@drawable/letter_a"
-        android:tag="a2"/>
-
-    <ImageView
-        android:id="@+id/a3_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/pineapple_image"
-        android:layout_marginBottom="100dp"
-        android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@id/pineapple_image"
-        android:src="@drawable/letter_a"
-        android:tag="a3"/>
+        android:layout_marginBottom="150dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/pineapple_image"
+        android:src="@drawable/letter_n"
+        android:tag="n1"/>
 
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/button_home"
         android:onClick="onClick"
-        android:tag="_black"
-        />
+        android:tag="_black"/>
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_next"
+        android:onClick="onClick"
+        android:tag="_black"/>
 
 </RelativeLayout>

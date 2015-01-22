@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-public class ChoiceOfLetterActivity extends Activity {
+public class ChoiceOfLetterActivity extends Activity implements View.OnClickListener{
     private int mCountOfViews;
     private ArrayList<View> mAllViews = new ArrayList<View>();
 
@@ -39,14 +39,13 @@ public class ChoiceOfLetterActivity extends Activity {
 
     private void initLayout() {
         mLayout = (RelativeLayout) findViewById(R.id.choice_letters);
-
         mCountOfViews = mLayout.getChildCount();
-
         for (int i = 0; i < mCountOfViews; i++) {
             mAllViews.add(mLayout.getChildAt(i));
         }
     }
 
+    @Override
     public void onClick(View view) {
         mIntent = new Intent(ChoiceOfLetterActivity.this, LetterPuzzleActivity.class);
         switch (view.getId()) {
@@ -84,6 +83,8 @@ public class ChoiceOfLetterActivity extends Activity {
 
     @Override
     protected void onRestart() {
+        initLayout();
+        setAnimationOnViews(mAllViews);
         initBackground();
         initMedia();
         super.onRestart();
@@ -109,8 +110,8 @@ public class ChoiceOfLetterActivity extends Activity {
 
     private void clearActivity() {
         mMediaPlayerBackground.stop();
+        mMediaPlayerGreeting.stop();
         mLayout.setBackground(null);
-        mLayout.removeAllViews();
     }
 
     public void setAnimationOnViews(ArrayList<View> views) {
@@ -118,7 +119,6 @@ public class ChoiceOfLetterActivity extends Activity {
             view.startAnimation(AnimationUtils.loadAnimation(ChoiceOfLetterActivity.this, R.anim.shake));
         }
     }
-
 
     private void startMediaPlayerGreeting(int lettersGreeting) {
         mMediaPlayerGreeting = MediaPlayer.create(ChoiceOfLetterActivity.this, lettersGreeting);

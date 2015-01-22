@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -89,6 +91,9 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
             case R.id.home_button:
                 startActivity(new Intent(WordPuzzleActivity.this, ChoiceOfLetterActivity.class));
                 break;
+            case R.id.next_button:
+                showNewWord();
+                break;
         }
     }
 
@@ -124,8 +129,8 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                     mCorrectWordsLetterSpot.setVisibility(View.INVISIBLE);
                     mCountOfLettersMatches++;
                     if (checkCompletedWord()) {
-                        mMainLayout.removeAllViews();
-                        showNewWord();
+                        mMediaPlayerNameOfWord.start();
+                       pause();
                     }
                     break;
                 }
@@ -223,10 +228,10 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         float correctPositionX = blackLetter.getX();
         float correctPositionY = blackLetter.getY();
 
-        float minBorderPositionX = correctPositionX - 100;
-        float maxBorderPositionX = correctPositionX + 100;
-        float minBorderPositionY = correctPositionY - 100;
-        float maxBorderPositionY = correctPositionY + 100;
+        float minBorderPositionX = correctPositionX - 50;
+        float maxBorderPositionX = correctPositionX + 50;
+        float minBorderPositionY = correctPositionY - 50;
+        float maxBorderPositionY = correctPositionY + 50;
 
         return (positionX >= minBorderPositionX && positionX <= maxBorderPositionX) &&
                 (positionY >= minBorderPositionY && positionY <= maxBorderPositionY);
@@ -283,7 +288,7 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
 
     private void initViews() {
         mCountOfViews = mMainLayout.getChildCount();
-        mAmountLettersOfWord = (mCountOfViews - 1) / 2;
+        mAmountLettersOfWord = (mCountOfViews - 2) / 2;
         mCountOfLettersMatches = 0;
         for (int i = 0; i < mCountOfViews; i++) {
             View view = mMainLayout.getChildAt(i);
@@ -294,7 +299,6 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         }
         setListenerOnViews(mAllViews);
     }
-
 
     private void startWordsImageAnimation() {
         mMainLayout.findViewWithTag(IMAGES_TAG).startAnimation(mAnimationAppear);
@@ -327,6 +331,28 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private void clearActivity() {
         mMainLayout.setBackground(null);
         mMediaPlayerBackground.stop();
+    }
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            mMainLayout.removeAllViews();
+            showNewWord();
+        }
+    };
+
+    public void pause() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                handler.sendEmptyMessage(0);
+            }
+        }).start();
     }
 }
 

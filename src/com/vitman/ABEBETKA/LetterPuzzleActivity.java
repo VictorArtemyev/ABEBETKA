@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -97,7 +99,7 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     private void clearActivity() {
         mMediaPlayerBackground.stop();
         mMainLayout.setBackground(null);
-        mMainLayout.removeAllViews();
+        stopMedia();
     }
 
     @Override
@@ -146,7 +148,7 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
                     view.setOnTouchListener(null);
                     correctLettersPartSpot.setVisibility(View.INVISIBLE);
                     mCountPartOfLetter++;
-                    startLettersAnimation(checkCompletedLetter());
+                    startLettersAnimationLayout(checkCompletedLetter());
                     break;
                 }
                 view.startAnimation(mAnimation);
@@ -196,23 +198,15 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     public boolean checkViewPosition(View view) {
         float positionX = view.getX();
         float positionY = view.getY();
-
-        Log.d("DEV", String.valueOf(positionX));
-        Log.d("DEV", String.valueOf(positionY));
-
         correctLettersPartSpot = getCorrectLettersPartView(view.getTag());
 
-//        correctLettersPartSpot.startAnimation(AnimationUtils.loadAnimation(LetterPuzzleActivity.this, R.anim.shake));
         float correctPositionX = correctLettersPartSpot.getX();
         float correctPositionY = correctLettersPartSpot.getY();
 
-        float minBorderPositionX = correctPositionX - 100;
-        float maxBorderPositionX = correctPositionX + 100;
-        float minBorderPositionY = correctPositionY - 100;
-        float maxBorderPositionY = correctPositionY + 100;
-
-        Log.d("DEV", "correctPositionX: " + correctPositionX);
-        Log.d("DEV", "correctPositionY: " + correctPositionY);
+        float minBorderPositionX = correctPositionX - 50;
+        float maxBorderPositionX = correctPositionX + 50;
+        float minBorderPositionY = correctPositionY - 50;
+        float maxBorderPositionY = correctPositionY + 50;
 
         return (positionX >= minBorderPositionX && positionX <= maxBorderPositionX) &&
                 (positionY >= minBorderPositionY && positionY <= maxBorderPositionY);
@@ -220,12 +214,9 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
     }
 
     //starts letters animation if all parts of letters body in correct place
-    private void startLettersAnimation(boolean isLetterCompleted) {
+    private void startLettersAnimationLayout(boolean isLetterCompleted) {
         if (isLetterCompleted) {
-            mMainLayout.removeAllViewsInLayout();
-            mMediaPlayerBackground.stop();
-            initIntent();
-            playLettersAnimation(mIntent);
+            startLettersAnimation();
         }
     }
 
@@ -320,5 +311,34 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
         mMediaPlayerBackground = MediaPlayer.create(this, R.raw.letterpuzzle_background_music);
         mMediaPlayerBackground.start();
         mMediaPlayerBackground.setLooping(true);
+    }
+
+    private void stopMedia() {
+        mMediaPlayerSound.pause();
+        mMediaPlayerBackground.pause();
+    }
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            mMainLayout.removeAllViewsInLayout();
+            mMediaPlayerBackground.stop();
+            initIntent();
+            playLettersAnimation(mIntent);
+        }
+    };
+
+    public void startLettersAnimation() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                handler.sendEmptyMessage(0);
+            }
+        }).start();
     }
 }

@@ -149,6 +149,7 @@ public class LettersAnimationActivity extends Activity {
     @Override
     protected void onResume() {
         initBackground();
+        mMediaPlayerBackground.start();
         super.onResume();
     }
 
@@ -173,6 +174,8 @@ public class LettersAnimationActivity extends Activity {
             case R.id.home_button :
                 startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
                 break;
+            case R.id.next_button:
+                startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
         }
     }
 
@@ -185,15 +188,7 @@ public class LettersAnimationActivity extends Activity {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-//            mMediaPlayerBackground.setVolume(1f, 1f);
-//            Animation animation = AnimationUtils.loadAnimation(LettersAnimationActivity.this, R.anim.appear_button);
-//            super.handleMessage(msg);
-//            mNextButton.setVisibility(View.VISIBLE);
-//            mNextButton.startAnimation(animation);
-//
-//            mHomeButton.setVisibility(View.VISIBLE);
-//            mHomeButton.startAnimation(animation);
-            startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
+            mMediaPlayerBackground.setVolume(1f, 1f);
         }
     };
 
@@ -207,11 +202,6 @@ public class LettersAnimationActivity extends Activity {
                       break;
                   }
                 }
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 handler.sendEmptyMessage(0);
             }
         }).start();
@@ -223,7 +213,8 @@ public class LettersAnimationActivity extends Activity {
     }
 
     private void clearActivity() {
+        mMediaPlayerLettersSong.pause();
         mLayoutForBackground.setBackground(null);
-        mMediaPlayerBackground.stop();
+        mMediaPlayerBackground.pause();
     }
 }
