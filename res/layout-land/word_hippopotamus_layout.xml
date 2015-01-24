@@ -1,152 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/word_bus"
+    android:id="@+id/word_hippopotamus"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/bus_image"
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/word_bus"
+        android:src="@drawable/word_hippopotamus"
         android:tag="image_black"/>
-
-    <ImageView
-        android:id="@+id/a_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/v_black"
-        android:src="@drawable/letter_a_black"
-        android:tag="a_black"/>
-
-    <ImageView
-        android:id="@+id/v_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/t_black"
-        android:src="@drawable/letter_v_black"
-        android:tag="v_black"/>
-
-    <ImageView
-        android:id="@+id/t_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/o_black"
-        android:src="@drawable/letter_t_black"
-        android:tag="t_black"/>
-
-    <ImageView
-        android:id="@+id/o_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/letter_o_black"
-        android:tag="o_black"/>
 
     <ImageView
         android:id="@+id/b_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/o_black"
+        android:layout_below="@+id/image"
+        android:layout_toLeftOf="@+id/e1_black"
         android:src="@drawable/letter_b_black"
         android:tag="b_black"/>
 
     <ImageView
-        android:id="@+id/y_black"
+        android:id="@+id/e1_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/b_black"
-        android:src="@drawable/letter_u_black"
-        android:tag="y_black"/>
+        android:layout_below="@+id/image"
+        android:layout_toLeftOf="@+id/g_black"
+        android:src="@drawable/letter_e_black"
+        android:tag="e1_black"/>
 
     <ImageView
-        android:id="@+id/c_black"
+        android:id="@+id/g_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bus_image"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/y_black"
-        android:src="@drawable/letter_s_black"
-        android:tag="c_black"/>
+        android:layout_below="@+id/image"
+        android:layout_toLeftOf="@+id/e2_black"
+        android:src="@drawable/letter_g_black"
+        android:tag="g_black"/>
+
+    <ImageView
+        android:id="@+id/e2_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/letter_e_black"
+        android:tag="e2_black"/>
+
+    <ImageView
+        android:id="@+id/m_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_toRightOf="@+id/e2_black"
+        android:src="@drawable/letter_m_black"
+        android:tag="m_black"/>
+
+    <ImageView
+        android:id="@+id/o_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+
+        android:layout_toRightOf="@+id/m_black"
+        android:src="@drawable/letter_o_black"
+        android:tag="o_black"/>
+
+    <ImageView
+        android:id="@+id/t_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_toRightOf="@+id/o_black"
+        android:src="@drawable/letter_t_black"
+        android:tag="t_black"/>
 
     <!--====================Color Letters====================-->
-
-    <ImageView
-        android:id="@+id/y_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/letter_u"
-        android:tag="y"/>
-
-    <ImageView
-        android:id="@+id/a_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
-        android:layout_marginBottom="80dp"
-        android:layout_marginRight="0dp"
-        android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/letter_a"
-        android:tag="a"/>
-
-    <ImageView
-        android:id="@+id/v_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
-        android:layout_marginBottom="120dp"
-        android:layout_marginRight="60dp"
-        android:layout_toLeftOf="@id/bus_image"
-        android:src="@drawable/letter_v"
-        android:tag="v"/>
 
     <ImageView
         android:id="@+id/o_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
-        android:layout_marginBottom="200dp"
-        android:layout_marginRight="0dp"
-        android:layout_toLeftOf="@id/bus_image"
+        android:layout_alignBottom="@id/image"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@id/image"
         android:src="@drawable/letter_o"
         android:tag="o"/>
 
     <ImageView
-        android:id="@+id/c_color"
+        android:id="@+id/e1_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
+        android:layout_alignBottom="@id/image"
+        android:layout_marginBottom="80dp"
+        android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@id/image"
+        android:src="@drawable/letter_e"
+        android:tag="e1"/>
+
+    <ImageView
+        android:id="@+id/m_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/image"
+        android:layout_marginBottom="120dp"
+        android:layout_marginRight="60dp"
+        android:layout_toLeftOf="@id/image"
+        android:src="@drawable/letter_m"
+        android:tag="m"/>
+
+    <ImageView
+        android:id="@+id/g_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/image"
+        android:layout_marginBottom="200dp"
+        android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@id/image"
+        android:src="@drawable/letter_g"
+        android:tag="g"/>
+
+    <ImageView
+        android:id="@+id/e2_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/bus_image"
-        android:src="@drawable/letter_s"
-        android:tag="c"/>
+        android:layout_toRightOf="@id/image"
+        android:src="@drawable/letter_e"
+        android:tag="e2"/>
 
     <ImageView
         android:id="@+id/t_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="120dp"
-        android:layout_toRightOf="@id/bus_image"
+        android:layout_toRightOf="@id/image"
         android:src="@drawable/letter_t"
         android:tag="t"/>
 
@@ -154,10 +149,10 @@
         android:id="@+id/b_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/bus_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="190dp"
         android:layout_marginLeft="80dp"
-        android:layout_toRightOf="@id/bus_image"
+        android:layout_toRightOf="@id/image"
         android:src="@drawable/letter_b"
         android:tag="b"/>
 
@@ -184,6 +179,6 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/button_next"
         android:onClick="onClick"
-        android:tag="_black"
-        />
-</RelativeLayout>
+        android:tag="_black"/>
+
+    </RelativeLayout>

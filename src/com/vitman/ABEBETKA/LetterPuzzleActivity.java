@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("deprecation")
 public class LetterPuzzleActivity extends Activity implements View.OnTouchListener {
 
-    private static final int MAX_LETTERS_LIMBS = 4;
+    private static final int MAX_LETTERS_LIMBS = 1;
 
     private int mCountPartOfLetter;
     private int xDelta;
@@ -50,6 +50,8 @@ public class LetterPuzzleActivity extends Activity implements View.OnTouchListen
 
         if (getIntent() != null) {
             mLayoutId = getIntent().getIntExtra(LettersTag.LETTER_LAYOUT, 0);
+            Log.d("DEV", "1" + String.valueOf(R.layout.animation_a_letter_layout));
+            Log.d("DEV", "2" + String.valueOf(mLayoutId));
         }
 
         mAnimation = AnimationUtils.loadAnimation(LetterPuzzleActivity.this, R.anim.shake);

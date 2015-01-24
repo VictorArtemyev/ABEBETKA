@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -47,23 +48,41 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     private MediaPlayer mMediaPlayerSound;
     private MediaPlayer mMediaPlayerNameOfWord;
 
-    private List<Integer> mWordsLayouts = new ArrayList<Integer>();
+    private int mLetterId;
+
+    private List<Integer> mWordsLayouts;
     private RelativeLayout.LayoutParams mLayoutParams;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initWordsLayouts();
+        if (getIntent() != null) {
+            mLetterId = getIntent().getIntExtra(LettersTag.LETTER_LAYOUT, 0);
+            Log.d("DEV", String.valueOf(mLetterId));
+        }
+
+        initWordsLayouts(mLetterId);
         initAnimation();
         showNewWord();
         initMedia();
     }
 
-    private void initWordsLayouts() {
-        mWordsLayouts.add(R.layout.word_bus_layout);
-        mWordsLayouts.add(R.layout.word_pineapple_layout);
-        mWordsLayouts.add(R.layout.word_shark_layout);
+    private void initWordsLayouts(int id) {
+        switch (id) {
+            case R.layout.animation_a_letter_layout:
+                mWordsLayouts = Words.LETTER_A_WORDS;
+                break;
+            case R.layout.animation_b_letter_layout:
+                Log.d("DEV", String.valueOf("succes"));
+                mWordsLayouts = Words.LETTER_B_WORDS;
+                break;
+            case R.layout.animation_v_letter_layout:
+                mWordsLayouts = Words.LETTER_B_WORDS;
+                break;
+            default:
+                break;
+        }
         Collections.shuffle(mWordsLayouts);
     }
 
@@ -272,6 +291,19 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 setWordPuzzleLayouts(R.id.word_shark);
                 startMediaPlayerNameOfWord(R.raw.shark);
                 break;
+            case R.layout.word_drum_layout:
+                setWordPuzzleLayouts(R.id.word_drum);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_baraban);
+                break;
+            case R.layout.word_hippopotamus_layout:
+                setWordPuzzleLayouts(R.id.word_hippopotamus);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_begemot);
+                break;
+            case R.layout.word_sheep_layout:
+                setWordPuzzleLayouts(R.id.word_sheep);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_baran);
+                break;
+
         }
         initBackground();
         startWordsImageAnimation();

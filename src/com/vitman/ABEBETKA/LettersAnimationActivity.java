@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
@@ -29,17 +30,19 @@ public class LettersAnimationActivity extends Activity {
     private MediaPlayer mMediaPlayerBackground;
     private MediaPlayer mMediaPlayerLettersSong;
 
+    private Intent mIntent;
+    private int mLayoutId;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int layout = 0;
         if (getIntent() != null) {
-            layout = getIntent().getIntExtra(LettersTag.LETTER_LAYOUT, 0);
+            mLayoutId = getIntent().getIntExtra(LettersTag.LETTER_LAYOUT, 0);
         }
 
-        setContentView(layout);
-        initLayouts(layout);
+        setContentView(mLayoutId);
+        initLayouts(mLayoutId);
 
         int mCountOfViews = mLettersMoveLayout.getChildCount();
 
@@ -134,6 +137,23 @@ public class LettersAnimationActivity extends Activity {
         }
     }
 
+    private void initIntent() {
+        mIntent = new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class);
+
+        switch (mLayoutId) {
+            case R.layout.animation_a_letter_layout:
+                Log.d("DEV", "letters puzzle intent");
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_a_letter_layout);
+                break;
+            case R.layout.animation_b_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_b_letter_layout);
+                break;
+            case R.layout.animation_v_letter_layout:
+                mIntent.putExtra(LettersTag.LETTER_LAYOUT, R.layout.animation_v_letter_layout);
+                break;
+        }
+    }
+
     @Override
     protected void onStop() {
         clearActivity();
@@ -175,7 +195,8 @@ public class LettersAnimationActivity extends Activity {
                 startActivity(new Intent(LettersAnimationActivity.this, ChoiceOfLetterActivity.class));
                 break;
             case R.id.next_button:
-                startActivity(new Intent(LettersAnimationActivity.this, WordPuzzleActivity.class));
+                initIntent();
+                startActivity(mIntent);
         }
     }
 
