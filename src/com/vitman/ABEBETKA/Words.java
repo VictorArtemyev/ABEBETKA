@@ -16,10 +16,17 @@ public final class Words {
         LETTER_A_WORDS.add(R.layout.word_shark_layout);
     }
 
-    //init Letter a words
+    //init Letter b words
     static {
         LETTER_B_WORDS.add(R.layout.word_drum_layout);
         LETTER_B_WORDS.add(R.layout.word_hippopotamus_layout);
         LETTER_B_WORDS.add(R.layout.word_sheep_layout);
+    }
+
+    //init Letter v words
+    static {
+        LETTER_V_WORDS.add(R.layout.word_crow_layout);
+        LETTER_V_WORDS.add(R.layout.word_wolf_layout);
+        LETTER_V_WORDS.add(R.layout.word_rainbow_layout);
     }
 }

@@ -74,11 +74,10 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 mWordsLayouts = Words.LETTER_A_WORDS;
                 break;
             case R.layout.animation_b_letter_layout:
-                Log.d("DEV", String.valueOf("succes"));
                 mWordsLayouts = Words.LETTER_B_WORDS;
                 break;
             case R.layout.animation_v_letter_layout:
-                mWordsLayouts = Words.LETTER_B_WORDS;
+                mWordsLayouts = Words.LETTER_V_WORDS;
                 break;
             default:
                 break;
@@ -277,19 +276,20 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
         mWordsLayouts.remove(0);
     }
 
+    //TODO to simplify it
     private void initLayouts(int idLayout) {
         switch (idLayout) {
             case R.layout.word_pineapple_layout:
                 setWordPuzzleLayouts(R.id.word_pineapple);
-                startMediaPlayerNameOfWord(R.raw.pineapple);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_pineapple);
                 break;
             case R.layout.word_bus_layout:
                 setWordPuzzleLayouts(R.id.word_bus);
-                startMediaPlayerNameOfWord(R.raw.bus);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_bus);
                 break;
             case R.layout.word_shark_layout:
                 setWordPuzzleLayouts(R.id.word_shark);
-                startMediaPlayerNameOfWord(R.raw.shark);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_shark);
                 break;
             case R.layout.word_drum_layout:
                 setWordPuzzleLayouts(R.id.word_drum);
@@ -303,6 +303,18 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
                 setWordPuzzleLayouts(R.id.word_sheep);
                 startMediaPlayerNameOfWord(R.raw.pronunciation_word_baran);
                 break;
+            case R.layout.word_crow_layout:
+                setWordPuzzleLayouts(R.id.word_crow);
+                startMediaPlayerNameOfWord(0);
+                break;
+            case R.layout.word_rainbow_layout:
+                setWordPuzzleLayouts(R.id.word_rainbow);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_rainbow);
+                break;
+            case R.layout.word_wolf_layout:
+                setWordPuzzleLayouts(R.id.word_wolf);
+                startMediaPlayerNameOfWord(R.raw.pronunciation_word_wolf);
+                break;
 
         }
         initBackground();
@@ -314,6 +326,10 @@ public class WordPuzzleActivity extends Activity implements View.OnTouchListener
     }
 
     private void startMediaPlayerNameOfWord(int nameOfWord) {
+        if(nameOfWord == 0) {
+            mMediaPlayerNameOfWord.stop();
+            return;
+        }
         mMediaPlayerNameOfWord = MediaPlayer.create(WordPuzzleActivity.this, nameOfWord);
         mMediaPlayerNameOfWord.start();
     }

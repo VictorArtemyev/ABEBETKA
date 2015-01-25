@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/word_drum"
+    android:id="@+id/word_rainbow"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,159 +11,156 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/word_drum"
+        android:src="@drawable/word_rainbow"
         android:tag="image_black"/>
 
     <ImageView
-        android:id="@+id/b_black"
+        android:id="@+id/v_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="10dp"
-
-        android:layout_toLeftOf="@+id/a1_black"
-        android:src="@drawable/letter_b_black"
-        android:tag="b_black"/>
+        android:layout_toLeftOf="@+id/e1_black"
+        android:src="@drawable/letter_v_black"
+        android:tag="v_black"/>
 
     <ImageView
-        android:id="@+id/a1_black"
+        android:id="@+id/e1_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="10dp"
-        android:layout_toLeftOf="@+id/r_black"
-        android:src="@drawable/letter_a_black"
-        android:tag="a1_black"/>
+        android:layout_toLeftOf="@+id/s_black"
+        android:src="@drawable/letter_e_black"
+        android:tag="e1_black"/>
 
     <ImageView
-        android:id="@+id/r_black"
+        android:id="@+id/s_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/a2_black"
-
-        android:src="@drawable/letter_r_black"
-        android:tag="r_black"/>
+        android:layout_toLeftOf="@+id/e2_black"
+        android:src="@drawable/letter_s_black"
+        android:tag="s_black"/>
 
     <ImageView
-        android:id="@+id/a2_black"
+        android:id="@+id/e2_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:src="@drawable/letter_a_black"
-        android:tag="a2_black"/>
+        android:src="@drawable/letter_e_black"
+        android:tag="e2_black"/>
 
     <ImageView
-        android:id="@+id/b2_black"
+        android:id="@+id/l_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/a2_black"
-        android:src="@drawable/letter_b_black"
-        android:tag="b2_black"/>
+        android:layout_toRightOf="@+id/e2_black"
+        android:src="@drawable/letter_l_black"
+        android:tag="l_black"/>
 
     <ImageView
-        android:id="@+id/a3_black"
+        android:id="@+id/k_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/b2_black"
-        android:src="@drawable/letter_a_black"
-        android:tag="a3_black"/>
+        android:layout_toRightOf="@+id/l_black"
+        android:src="@drawable/letter_k_black"
+        android:tag="k_black"/>
 
     <ImageView
-        android:id="@+id/n_black"
+        android:id="@+id/a_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
-
-        android:layout_toRightOf="@+id/a3_black"
-        android:src="@drawable/letter_n_black"
-        android:tag="n_black"/>
+        android:layout_toRightOf="@+id/k_black"
+        android:src="@drawable/letter_a_black"
+        android:tag="a_black"/>
 
     <!--====================Color Letters====================-->
 
     <ImageView
-        android:id="@+id/r_color"
+        android:id="@+id/a_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="50dp"
         android:layout_toLeftOf="@id/image"
-        android:src="@drawable/letter_r"
-        android:tag="r"/>
+        android:src="@drawable/letter_a"
+        android:tag="a"/>
 
     <ImageView
-        android:id="@+id/n_color"
+        android:id="@+id/l_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="80dp"
         android:layout_marginRight="0dp"
         android:layout_toLeftOf="@id/image"
-        android:src="@drawable/letter_n"
-        android:tag="n"/>
+        android:src="@drawable/letter_l"
+        android:tag="l"/>
 
     <ImageView
-        android:id="@+id/b1_color"
+        android:id="@+id/e1_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="130dp"
         android:layout_marginRight="60dp"
         android:layout_toLeftOf="@id/image"
-        android:src="@drawable/letter_b"
-        android:tag="b1"/>
+        android:src="@drawable/letter_e"
+        android:tag="e1"/>
 
     <ImageView
-        android:id="@+id/a1_color"
+        android:id="@+id/k_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="200dp"
         android:layout_marginRight="0dp"
         android:layout_toLeftOf="@id/image"
-        android:src="@drawable/letter_a"
-        android:tag="a1"/>
+        android:src="@drawable/letter_k"
+        android:tag="k"/>
 
     <ImageView
-        android:id="@+id/a3_color"
+        android:id="@+id/e2_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="50dp"
         android:layout_toRightOf="@id/image"
-        android:src="@drawable/letter_a"
-        android:tag="a3"/>
+        android:src="@drawable/letter_e"
+        android:tag="e2"/>
 
     <ImageView
-        android:id="@+id/b2_color"
+        android:id="@+id/v_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="120dp"
         android:layout_toRightOf="@id/image"
-        android:src="@drawable/letter_b"
-        android:tag="b2"/>
+        android:src="@drawable/letter_v"
+        android:tag="v"/>
 
     <ImageView
-        android:id="@+id/a2_color"
+        android:id="@+id/s_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/image"
         android:layout_marginBottom="190dp"
         android:layout_marginLeft="80dp"
         android:layout_toRightOf="@id/image"
-        android:src="@drawable/letter_a"
-        android:tag="a2"/>
+        android:src="@drawable/letter_s"
+        android:tag="s"/>
 
     <ImageButton
         android:id="@+id/home_button"
@@ -175,8 +172,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/button_home"
         android:onClick="onClick"
-        android:tag="_black"
-        />
+        android:tag="_black"/>
 
     <ImageButton
         android:id="@+id/next_button"

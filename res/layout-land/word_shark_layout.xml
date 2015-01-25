@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/shark_image"
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -18,7 +18,7 @@
         android:id="@+id/a1_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shark_image"
+        android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/k_black"
         android:src="@drawable/letter_a_black"
@@ -28,7 +28,7 @@
         android:id="@+id/k_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shark_image"
+        android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/y_black"
         android:src="@drawable/letter_k_black"
@@ -38,7 +38,7 @@
         android:id="@+id/y_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shark_image"
+        android:layout_below="@+id/image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:src="@drawable/letter_u_black"
@@ -48,7 +48,7 @@
         android:id="@+id/l_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shark_image"
+        android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/y_black"
         android:src="@drawable/letter_l_black"
@@ -58,7 +58,7 @@
         android:id="@+id/a2_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shark_image"
+        android:layout_below="@+id/image"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/l_black"
         android:src="@drawable/letter_a_black"
@@ -70,9 +70,9 @@
         android:id="@+id/y_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/shark_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginRight="60dp"
-        android:layout_toLeftOf="@id/shark_image"
+        android:layout_toLeftOf="@id/image"
         android:src="@drawable/letter_u"
         android:tag="y"/>
 
@@ -80,10 +80,10 @@
         android:id="@+id/l_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/shark_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="80dp"
         android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@id/shark_image"
+        android:layout_toLeftOf="@id/image"
         android:src="@drawable/letter_l"
         android:tag="l"/>
 
@@ -91,10 +91,10 @@
         android:id="@+id/a2_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/shark_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="170dp"
         android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@id/shark_image"
+        android:layout_toLeftOf="@id/image"
         android:src="@drawable/letter_a"
         android:tag="a2"/>
 
@@ -102,10 +102,10 @@
         android:id="@+id/a1_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/shark_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="60dp"
         android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/shark_image"
+        android:layout_toRightOf="@id/image"
         android:src="@drawable/letter_a"
         android:tag="a1"/>
 
@@ -113,10 +113,10 @@
         android:id="@+id/k_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/shark_image"
+        android:layout_alignBottom="@id/image"
         android:layout_marginBottom="170dp"
         android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/shark_image"
+        android:layout_toRightOf="@id/image"
         android:src="@drawable/letter_k"
         android:tag="k"/>
 
